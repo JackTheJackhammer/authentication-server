@@ -105,6 +105,7 @@ def checkIDEndpoint(session: Annotated[str | None, Cookie()] = None):
     if session is None:
         raise HTTPException(status_code=500)
     if not CheckSessionID(session):
+        print(session)
         raise HTTPException(status_code=401)
 
 

@@ -2,6 +2,7 @@ import fastapi
 
 # import auth router
 import routers.auth as auth_router
+import routers.signup as signup_router
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -10,8 +11,8 @@ app = fastapi.FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:8000",
+        "http://localhost:3000",
+        "http://192.168.1.165:3000",  # for testing
     ],  # Add frontend URL when in prod.
     allow_credentials=True,
     allow_methods=["*"],
@@ -27,6 +28,7 @@ async def print_request(request: fastapi.Request, call_next):
 
 
 app.include_router(auth_router.router)
+app.include_router(signup_router.router)
 
 
 @app.get("/auth")
