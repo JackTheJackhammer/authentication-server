@@ -53,6 +53,8 @@ def generateCookieSession(username: str, ip_address: str):
 async def login(login_credentials: LoginCredentials, request: Request):
     # Validate with Database
     # Note: The credentials should be hashed in the fucking DB. They are sent over plaintext https
+    #
+    print("This updates")
     q = queryDatabase(
         """
         SELECT * FROM users WHERE usrname = %s
