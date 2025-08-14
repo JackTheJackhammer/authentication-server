@@ -81,7 +81,6 @@ async def login(login_credentials: LoginCredentials, request: Request):
         secure=False,  #  allow testing on localhost
         samesite="lax",
         expires=datetime.now(timezone.utc) + timedelta(seconds=TIME_TO_EXPIRY),
-        domain=None,
     )
     print(response.headers, response.body)
     # switch to Secure=True, samesite="none" when in prod
