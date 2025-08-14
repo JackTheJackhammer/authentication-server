@@ -6,7 +6,7 @@ import psycopg2
 def createConnection():
     conn = psycopg2.connect(
         database="auth-hp-datavault",
-        host="localhost",
+        host="dev_auth_db",
         user="postgres",
         password="admin123",
         port="5432",
