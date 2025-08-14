@@ -12,7 +12,6 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "http://192.168.1.165:3000",  # for testing
     ],  # Add frontend URL when in prod.
     allow_credentials=True,
     allow_methods=["*"],
