@@ -78,8 +78,8 @@ async def login(login_credentials: LoginCredentials, request: Request):
         key="session",
         value=generateCookieSession(login_credentials.username, "PLACEHOLDER"),
         httponly=True,
-        secure=False,  #  allow testing on localhost
-        samesite="lax",
+        secure=True,  #  allow testing on localhost
+        samesite=None,
         expires=datetime.now(timezone.utc) + timedelta(seconds=TIME_TO_EXPIRY),
     )
     print(response.headers, response.body)
